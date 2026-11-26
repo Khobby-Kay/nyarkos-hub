@@ -9,8 +9,8 @@
   --color-accent-soft: #fce8ea;
   --color-surface: #ffffff;
   --color-ink: #141414;
-  --font-display: var(--font-syne);
-  --font-sans: var(--font-dm-sans);
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
 }
 
 * {
