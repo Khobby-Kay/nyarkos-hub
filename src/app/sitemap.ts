@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { products, categories } from "@/lib/data";
+import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://nyarkos-hub.vercel.app";
+  const base = SITE_URL;
   const staticRoutes = [
     "",
     "/shop",
