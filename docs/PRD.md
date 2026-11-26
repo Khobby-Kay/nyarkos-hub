@@ -70,8 +70,8 @@ Initial market: online fashion shoppers in Ghana. Architecture must allow intern
 
 ## 3. Systems
 
-- **System A — Storefront:** public site for discovery, purchase, and account activity.
-- **System B — Admin:** private dashboard for products, orders, payments, inventory, customers, marketing, and content.
+- **System A: Storefront:** public site for discovery, purchase, and account activity.
+- **System B: Admin:** private dashboard for products, orders, payments, inventory, customers, marketing, and content.
 
 Both use one backend and one database.
 

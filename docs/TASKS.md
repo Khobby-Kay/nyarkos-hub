@@ -20,7 +20,7 @@ Do not start payment or admin work until Nyarko's Hub confirms the open items in
 
 These screens are not accepted as commerce features yet. Cart totals, search, checkout, and accounts are still visual.
 
-## Release 1 — store that can sell
+## Release 1: store that can sell
 
 ### Foundation
 
@@ -77,7 +77,7 @@ Dashboard charts, coupons, reports, and extra staff roles are release 2. One sup
 
 Run the payment cases in PRD section 15 against Paystack test keys: success, failure, cancel, and the same webhook twice. Two parallel checkouts of the last unit must leave stock at zero and only one paid order.
 
-## Release 2 — operate the business
+## Release 2: operate the business
 
 | ID | Task |
 | --- | --- |
@@ -92,7 +92,7 @@ Run the payment cases in PRD section 15 against Paystack test keys: success, fai
 | B-09 | FAQ, policies, contact, and WhatsApp button |
 | B-10 | GA4 and Meta Pixel after a consent choice |
 
-## Release 3 — growth
+## Release 3: growth
 
 Recommendations, shop-the-look outfits, loyalty, gift cards, WhatsApp and SMS notifications, affiliates, and any AI features. Each one ships behind its own flag so the store keeps working if it is off.
 

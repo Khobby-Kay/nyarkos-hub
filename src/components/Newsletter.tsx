@@ -23,7 +23,7 @@ export function Newsletter() {
         </p>
         {done ? (
           <p className="mt-8 text-sm font-semibold text-accent">
-            You&apos;re in — watch your inbox.
+            You&apos;re in. Watch your inbox.
           </p>
         ) : (
           <form

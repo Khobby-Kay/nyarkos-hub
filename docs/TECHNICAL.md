@@ -65,61 +65,61 @@ Money is stored as integer pesewas. GHS 420.00 is `42000`. Display uses `formatP
 
 ### Catalogue
 
-`categories` — id, parent_id, name, slug, description, image_path, sort_order, active
+`categories`: id, parent_id, name, slug, description, image_path, sort_order, active
 
-`collections` — id, name, slug, description, kind (`new`, `bestseller`, `trending`, `sale`, `featured`, `custom`)
+`collections`: id, name, slug, description, kind (`new`, `bestseller`, `trending`, `sale`, `featured`, `custom`)
 
-`products` — id, name, slug, description, status (`draft`, `published`, `archived`), currency, material, care, size_guide, seo_title, seo_description, created_at, updated_at
+`products`: id, name, slug, description, status (`draft`, `published`, `archived`), currency, material, care, size_guide, seo_title, seo_description, created_at, updated_at
 
-`product_categories` and `product_collections` — many-to-many
+`product_categories` and `product_collections`: many-to-many
 
-`product_images` — id, product_id, path, alt, sort_order
+`product_images`: id, product_id, path, alt, sort_order
 
-`product_variants` — id, product_id, sku unique, colour_name, colour_hex, size, price_pesewas, compare_at_pesewas, active
+`product_variants`: id, product_id, sku unique, colour_name, colour_hex, size, price_pesewas, compare_at_pesewas, active
 
-`inventory` — variant_id primary key, quantity, reserved, low_stock_threshold
+`inventory`: variant_id primary key, quantity, reserved, low_stock_threshold
 
-`inventory_movements` — id, variant_id, delta, reason (`sale`, `cancel`, `adjust`, `restock`), order_id nullable, actor_id, note, created_at
+`inventory_movements`: id, variant_id, delta, reason (`sale`, `cancel`, `adjust`, `restock`), order_id nullable, actor_id, note, created_at
 
 Available to sell is `quantity - reserved`.
 
 ### Commerce
 
-`carts` — id, user_id nullable, guest_token nullable, status (`open`, `converted`, `abandoned`), updated_at
+`carts`: id, user_id nullable, guest_token nullable, status (`open`, `converted`, `abandoned`), updated_at
 
-`cart_items` — id, cart_id, variant_id, quantity. Unique on cart plus variant.
+`cart_items`: id, cart_id, variant_id, quantity. Unique on cart plus variant.
 
-`orders` — id, reference unique, user_id nullable, email, phone, status (`pending`, `confirmed`, `processing`, `dispatched`, `delivered`, `cancelled`), payment_status, currency, subtotal, discount, shipping, total, address snapshot JSON, notes, created_at
+`orders`: id, reference unique, user_id nullable, email, phone, status (`pending`, `confirmed`, `processing`, `dispatched`, `delivered`, `cancelled`), payment_status, currency, subtotal, discount, shipping, total, address snapshot JSON, notes, created_at
 
-`order_items` — id, order_id, variant_id, product_name, sku, unit_price, quantity. Prices are copied onto the line so later catalogue edits do not rewrite history.
+`order_items`: id, order_id, variant_id, product_name, sku, unit_price, quantity. Prices are copied onto the line so later catalogue edits do not rewrite history.
 
-`payments` — id, order_id, provider, reference unique, amount, status, raw_event JSON, created_at
+`payments`: id, order_id, provider, reference unique, amount, status, raw_event JSON, created_at
 
-`refunds` — id, payment_id, amount, status, reason
+`refunds`: id, payment_id, amount, status, reason
 
-`shipping_methods` — id, name, zone, price_pesewas, free_over_pesewas nullable, estimate_text, active
+`shipping_methods`: id, name, zone, price_pesewas, free_over_pesewas nullable, estimate_text, active
 
-`shipments` — id, order_id, method_id, tracking_number, status, shipped_at, delivered_at
+`shipments`: id, order_id, method_id, tracking_number, status, shipped_at, delivered_at
 
-`coupons` — id, code unique, type (`percent`, `fixed`, `free_shipping`), value, starts_at, ends_at, usage_limit, min_subtotal, max_discount nullable
+`coupons`: id, code unique, type (`percent`, `fixed`, `free_shipping`), value, starts_at, ends_at, usage_limit, min_subtotal, max_discount nullable
 
 ### Customers and staff
 
 Supabase Auth holds credentials. `profiles` holds id, role (`customer`, `staff`), full_name, phone.
 
-`addresses` — id, user_id, region, city, line, instructions, is_default
+`addresses`: id, user_id, region, city, line, instructions, is_default
 
-`staff_permissions` — user_id, permission. Permissions are strings such as `products.write` and `orders.refund`.
+`staff_permissions`: user_id, permission. Permissions are strings such as `products.write` and `orders.refund`.
 
-`audit_logs` — id, actor_id, action, entity, entity_id, created_at
+`audit_logs`: id, actor_id, action, entity, entity_id, created_at
 
 `wishlists` and `wishlist_items` for signed-in customers. Guests use local storage until they sign in, then the server merges.
 
-`reviews` — id, product_id, user_id, order_item_id, rating, body, status (`pending`, `published`, `rejected`)
+`reviews`: id, product_id, user_id, order_item_id, rating, body, status (`pending`, `published`, `rejected`)
 
-`newsletter_subscribers` — email unique, consented_at
+`newsletter_subscribers`: email unique, consented_at
 
-`support_tickets` — id, order_id nullable, email, topic, body, status
+`support_tickets`: id, order_id nullable, email, topic, body, status
 
 ## Critical transactions
 

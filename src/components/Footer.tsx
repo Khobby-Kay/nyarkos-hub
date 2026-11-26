@@ -38,7 +38,7 @@ export function Footer() {
             Nyarko&apos;s<span className="text-[#87ceeb]">.</span>
           </p>
           <p className="mt-4 max-w-xs text-sm text-white/60">
-            Men&apos;s premium knit polos — quarter-zips and classics. Six
+            Men&apos;s premium knit polos. Quarter-zips and classics. Six
             styles, one hub, studio quality.
           </p>
           <div className="mt-6 flex gap-3">

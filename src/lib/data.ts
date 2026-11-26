@@ -47,7 +47,7 @@ export const categories: Category[] = [
 export const products: Product[] = [
   {
     id: "diamond-cream-zip",
-    name: "Diamond Cable Quarter Zip — Cream",
+    name: "Diamond Cable Quarter Zip, Cream",
     price: 420,
     category: "textures",
     tag: "Bestseller",

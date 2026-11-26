@@ -9,10 +9,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Nyarko's Hub | Premium Knit Polos",
   description:
-    "Shop Nyarko's Hub — men's premium short-sleeve knit polos. Quarter-zip and button styles, limited collection, delivery across Ghana.",
+    "Shop Nyarko's Hub. Men's premium short-sleeve knit polos. Quarter-zip and button styles, limited collection, delivery across Ghana.",
   openGraph: {
     title: "Nyarko's Hub",
-    description: "Premium knit polos — the full hub collection.",
+    description: "Premium knit polos. The full hub collection.",
     type: "website",
   },
 };

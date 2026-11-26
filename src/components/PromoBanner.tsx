@@ -16,7 +16,7 @@ export function PromoBanner() {
               <span className="text-white/90">on sale now</span>
             </h2>
             <p className="mt-4 max-w-sm text-sm text-white/70 sm:text-base">
-              One style marked down while stock lasts — every other piece is
+              One style marked down while stock lasts. Every other piece is
               full price, full quality.
             </p>
             <Link
