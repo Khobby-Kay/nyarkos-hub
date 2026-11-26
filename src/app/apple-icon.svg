@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <rect width="180" height="180" fill="#141414"/>
+  <text
+    x="90"
+    y="98"
+    text-anchor="middle"
+    fill="#ffffff"
+    font-family="system-ui, sans-serif"
+    font-size="88"
+    font-weight="800"
+  >
+    N<tspan fill="#87ceeb">.</tspan>
+  </text>
+  <text
+    x="90"
+    y="132"
+    text-anchor="middle"
+    fill="rgba(255,255,255,0.55)"
+    font-family="system-ui, sans-serif"
+    font-size="15"
+    font-weight="600"
+    letter-spacing="5"
+  >
+    HUB
+  </text>
+</svg>
