@@ -7,72 +7,51 @@ import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[88vh] overflow-hidden sm:min-h-[92vh]">
+    <section className="relative h-[92vh] min-h-[640px] overflow-hidden">
       <Image
-        src="/hero/lifestyle-portrait.jpg"
-        alt="A man and a woman in knit polos standing beside a luxury car"
+        src="/hero/lifestyle.jpg"
+        alt="A man and a woman in knit polos talking beside a black car"
         fill
         priority
-        className="object-cover object-center lg:hidden"
+        className="object-cover object-center"
         sizes="100vw"
       />
-      <Image
-        src="/hero/lifestyle-wide.jpg"
-        alt="A man and a woman in knit polos standing beside a luxury car"
-        fill
-        priority
-        className="hidden object-cover object-center lg:block"
-        sizes="100vw"
+      <div className="absolute inset-0 bg-black/30" aria-hidden />
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/25"
+        aria-hidden
       />
-      <div className="absolute inset-0 bg-black/35" aria-hidden />
 
-      <div className="relative z-10 mx-auto flex min-h-[88vh] max-w-[1400px] flex-col justify-end px-4 py-12 sm:min-h-[92vh] sm:px-6 sm:py-16 lg:justify-center lg:px-10 lg:py-20 xl:px-14">
+      <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-4 pb-12 sm:px-6 sm:pb-16 lg:px-10 lg:pb-20 xl:px-14">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
-          className="max-w-xl text-white"
+          className="max-w-3xl text-white"
         >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/75">
-            Nyarko&apos;s Hub. Knit polos only
-          </p>
-          <h1 className="font-display text-[clamp(2.75rem,7vw,5.25rem)] font-extrabold leading-[0.92] tracking-tight">
-            Quiet luxury.
+          <h1 className="font-display text-[clamp(3.4rem,8.5vw,7rem)] font-extrabold leading-[0.88] tracking-tight">
+            Pull up
             <br />
-            <span className="text-white/80">Loud knit.</span>
+            proper.
           </h1>
-          <p className="mt-5 max-w-md text-base leading-relaxed text-white/80 sm:text-lg">
-            Premium short-sleeve knitted polos. Quarter-zips and classics.
-            Limited drops, made for the evening and the drive.
+          <p className="mt-5 max-w-md text-base text-white/85 sm:text-lg">
+            Knit polos for the car and the rest of the night. Six styles.
+            That&apos;s the whole shop.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/shop"
               className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-ink transition hover:bg-white/90"
             >
-              Shop all polos
+              Shop the polos
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </Link>
             <Link
               href="/shop/quarter-zip"
-              className="inline-flex items-center rounded-full border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
+              className="inline-flex items-center rounded-full border border-white/50 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10"
             >
-              Quarter zip styles
+              Quarter zips
             </Link>
-          </div>
-          <div className="mt-10 grid max-w-md grid-cols-3 gap-3 border-t border-white/20 pt-6 text-sm sm:gap-8 sm:pt-8">
-            <div>
-              <p className="font-display text-2xl font-bold">6</p>
-              <p className="text-xs text-white/70 sm:text-sm">Exclusive styles</p>
-            </div>
-            <div>
-              <p className="font-display text-2xl font-bold">100%</p>
-              <p className="text-xs text-white/70 sm:text-sm">Knit polos</p>
-            </div>
-            <div>
-              <p className="font-display text-2xl font-bold">GH</p>
-              <p className="text-xs text-white/70 sm:text-sm">Nationwide</p>
-            </div>
           </div>
         </motion.div>
       </div>
