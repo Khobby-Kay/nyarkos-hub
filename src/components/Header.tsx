@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
+import { Search, ShoppingBag, User, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/lib/data";
 import { useShop } from "@/lib/store";
@@ -13,7 +13,7 @@ export function Header() {
   const { cartCount } = useShop();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -28,72 +28,76 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-border/80 bg-background/90 shadow-sm backdrop-blur-xl"
-          : "bg-background"
+      className={`sticky top-0 z-50 border-b border-black/10 bg-[#faf8f6] ${
+        scrolled ? "shadow-[0_1px_0_rgba(0,0,0,0.04)]" : ""
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-4 px-4 sm:h-[4.25rem] sm:px-6 lg:px-8">
-        <button
-          type="button"
-          className="rounded-lg p-2 lg:hidden"
-          onClick={() => setMobileOpen(true)}
-          aria-label="Open menu"
-        >
-          <Menu className="h-5 w-5" />
-        </button>
+      <div className="grid h-14 grid-cols-3 items-center px-4 sm:h-16 sm:px-8">
+        <div className="flex items-center">
+          <button
+            type="button"
+            className="text-[11px] font-medium uppercase tracking-[0.22em] lg:hidden"
+            onClick={() => setMobileOpen(true)}
+          >
+            Menu
+          </button>
+          <Link
+            href="/search"
+            className="hidden items-center gap-2 text-[11px] font-medium uppercase tracking-[0.22em] text-black/70 transition hover:text-black lg:inline-flex"
+          >
+            <Search className="h-3.5 w-3.5" />
+            Search
+          </Link>
+        </div>
 
         <Link
           href="/"
-          className="font-display text-xl font-extrabold tracking-tight sm:text-2xl"
+          className="justify-self-center text-center font-display text-[1.15rem] font-semibold uppercase tracking-[0.28em] sm:text-xl sm:tracking-[0.34em]"
         >
-          Nyarko&apos;s<span className="text-accent">.</span>
+          Nyarko&apos;s
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-sm font-medium tracking-wide transition hover:text-accent ${
-                link.accent ? "text-accent" : "text-foreground/85"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-1 sm:gap-2">
+        <div className="flex items-center justify-end gap-4 sm:gap-5">
           <Link
             href="/search"
-            className="rounded-full p-2.5 transition hover:bg-black/5"
+            className="lg:hidden"
             aria-label="Search"
           >
-            <Search className="h-[18px] w-[18px]" />
+            <Search className="h-4 w-4" />
           </Link>
           <Link
             href="/account"
-            className="hidden rounded-full p-2.5 transition hover:bg-black/5 sm:block"
-            aria-label="Account"
+            className="hidden text-[11px] font-medium uppercase tracking-[0.22em] text-black/70 transition hover:text-black sm:inline-flex sm:items-center sm:gap-2"
           >
-            <User className="h-[18px] w-[18px]" />
+            <User className="h-3.5 w-3.5" />
+            Account
           </Link>
           <Link
             href="/cart"
-            className="relative rounded-full p-2.5 transition hover:bg-black/5"
-            aria-label={`Cart, ${cartCount} items`}
+            className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.22em]"
+            aria-label={`Bag, ${cartCount} items`}
           >
-            <ShoppingBag className="h-[18px] w-[18px]" />
-            {cartCount > 0 ? (
-              <span className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-bold text-white">
-                {cartCount}
-              </span>
-            ) : null}
+            <ShoppingBag className="h-4 w-4" />
+            <span className="hidden sm:inline">Bag</span>
+            <span>{cartCount}</span>
           </Link>
         </div>
       </div>
+
+      <nav
+        className="hidden justify-center gap-8 border-t border-black/10 py-2.5 lg:flex"
+        aria-label="Main"
+      >
+        {navLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="text-[11px] font-medium uppercase tracking-[0.2em] text-black/70 transition hover:text-black"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </nav>
 
       <AnimatePresence>
         {mobileOpen && (
@@ -101,42 +105,33 @@ export function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm lg:hidden"
-            onClick={() => setMobileOpen(false)}
+            className="fixed inset-0 z-[60] bg-[#faf8f6] lg:hidden"
           >
-            <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ type: "spring", damping: 28, stiffness: 320 }}
-              className="h-full w-[min(320px,88vw)] bg-background p-6 shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="mb-8 flex items-center justify-between">
-                <span className="font-display text-lg font-bold">Menu</span>
-                <button
-                  type="button"
+            <div className="flex h-14 items-center justify-between px-4">
+              <span className="text-[11px] uppercase tracking-[0.22em]">Menu</span>
+              <button type="button" onClick={() => setMobileOpen(false)} aria-label="Close menu">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <nav className="flex flex-col px-6 pt-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  aria-label="Close menu"
+                  className="border-b border-black/10 py-4 font-display text-3xl font-semibold tracking-tight"
                 >
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
-              <nav className="flex flex-col gap-4">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={`font-display text-2xl font-semibold ${
-                      link.accent ? "text-accent" : ""
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-            </motion.div>
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/account"
+                onClick={() => setMobileOpen(false)}
+                className="mt-8 text-[11px] uppercase tracking-[0.22em]"
+              >
+                Account
+              </Link>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
