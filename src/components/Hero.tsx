@@ -10,7 +10,7 @@ export function Hero() {
     <section className="relative h-[92vh] min-h-[640px] overflow-hidden">
       <Image
         src="/hero/lifestyle.jpg"
-        alt="A man and a woman in knit polos talking beside a black car"
+        alt="A couple in knitwear posing beside a black Mercedes"
         fill
         priority
         className="object-cover object-center"
