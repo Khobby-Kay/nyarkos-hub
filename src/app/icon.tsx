@@ -21,7 +21,9 @@ export default function Icon() {
           letterSpacing: "-0.02em",
         }}
       >
-        N<span style={{ color: "#87ceeb" }}>.</span>
+        <span style={{ display: "flex", alignItems: "center" }}>
+          N<span style={{ color: "#87ceeb" }}>.</span>
+        </span>
       </div>
     ),
     { ...size },
