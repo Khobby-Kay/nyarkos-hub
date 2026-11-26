@@ -76,12 +76,14 @@ export function Hero() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="absolute bottom-6 left-6 right-6 rounded-2xl border border-border bg-surface/95 p-4 shadow-lg backdrop-blur-md sm:left-auto sm:right-8 sm:max-w-xs"
           >
-            <p className="text-xs font-medium uppercase tracking-widest text-muted">
-              Featured knit
-            </p>
-            <p className="mt-1 font-display text-lg font-bold text-ink">
-              {featured.name.split("—")[0].trim()} — {formatPrice(featured.price)}
-            </p>
+            <Link href={`/product/${featured.id}`}>
+              <p className="text-xs font-medium uppercase tracking-widest text-muted">
+                Featured knit
+              </p>
+              <p className="mt-1 font-display text-lg font-bold text-ink">
+                {featured.name.split("—")[0].trim()} — {formatPrice(featured.price)}
+              </p>
+            </Link>
           </motion.div>
         </div>
       </div>

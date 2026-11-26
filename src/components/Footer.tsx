@@ -7,24 +7,24 @@ const cols = [
     links: [
       { label: "All Polos", href: "/shop" },
       { label: "Quarter Zip", href: "/shop/quarter-zip" },
-      { label: "Striped", href: "/shop/striped" },
-      { label: "Button Polos", href: "/shop/classic" },
+      { label: "Saved", href: "/wishlist" },
+      { label: "Track order", href: "/track" },
     ],
   },
   {
     title: "Help",
     links: [
-      { label: "Track Order", href: "#" },
-      { label: "Size Guide", href: "#" },
-      { label: "Care (Knit)", href: "#" },
-      { label: "Contact", href: "#" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Shipping", href: "/policies/shipping" },
+      { label: "Returns", href: "/policies/returns" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
     title: "About",
     links: [
-      { label: "Nyarko's Hub", href: "#" },
-      { label: "Wholesale", href: "#" },
+      { label: "Our story", href: "/about" },
+      { label: "Privacy", href: "/policies/privacy" },
     ],
   },
 ];
@@ -82,10 +82,10 @@ export function Footer() {
         <div className="mx-auto flex max-w-[1400px] flex-col gap-2 px-4 py-6 text-xs text-white/40 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
           <p>© {new Date().getFullYear()} Nyarko&apos;s Hub. All rights reserved.</p>
           <div className="flex gap-4">
-            <Link href="#" className="hover:text-white/70">
+            <Link href="/policies/privacy" className="hover:text-white/70">
               Privacy
             </Link>
-            <Link href="#" className="hover:text-white/70">
+            <Link href="/policies/returns" className="hover:text-white/70">
               Terms
             </Link>
           </div>

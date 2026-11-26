@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ShopProvider } from "@/lib/store";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -36,10 +37,12 @@ export default function RootLayout({
         />
       </head>
       <body className="grain antialiased">
-        <AnnouncementBar />
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <ShopProvider>
+          <AnnouncementBar />
+          <Header />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+        </ShopProvider>
       </body>
     </html>
   );

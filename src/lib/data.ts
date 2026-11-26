@@ -127,6 +127,79 @@ export function formatPrice(amount: number) {
   }).format(amount);
 }
 
+export const sizes = ["S", "M", "L", "XL"] as const;
+export type Size = (typeof sizes)[number];
+
+export const stock: Record<string, Record<Size, number>> = {
+  "diamond-cream-zip": { S: 4, M: 8, L: 6, XL: 3 },
+  "navy-resort-zip": { S: 3, M: 7, L: 5, XL: 2 },
+  "grey-chevron-polo": { S: 2, M: 6, L: 4, XL: 0 },
+  "resort-pointelle-polo": { S: 3, M: 4, L: 4, XL: 2 },
+  "forest-band-zip": { S: 1, M: 3, L: 2, XL: 1 },
+  "heritage-colorblock-zip": { S: 2, M: 5, L: 3, XL: 2 },
+};
+
+export const sizeGuide: { size: Size; chest: string }[] = [
+  { size: "S", chest: "36–38 in" },
+  { size: "M", chest: "39–41 in" },
+  { size: "L", chest: "42–44 in" },
+  { size: "XL", chest: "45–47 in" },
+];
+
+export const shippingMethods = [
+  {
+    id: "accra",
+    name: "Accra delivery",
+    price: 35,
+    estimate: "1–2 days",
+    freeOver: 500,
+  },
+  {
+    id: "nationwide",
+    name: "Nationwide Ghana",
+    price: 55,
+    estimate: "2–5 days",
+    freeOver: 800,
+  },
+  {
+    id: "pickup",
+    name: "Pickup in Accra",
+    price: 0,
+    estimate: "Ready the same day",
+    freeOver: null as number | null,
+  },
+];
+
+export const fabricNote =
+  "Fine-gauge knit polo. Ribbed collar, cuffs, and hem. Machine wash cold and dry flat.";
+
 export function getProduct(id: string) {
   return products.find((p) => p.id === id);
+}
+
+export function stockFor(productId: string, size: Size) {
+  return stock[productId]?.[size] ?? 0;
+}
+
+export function firstAvailableSize(productId: string): Size | null {
+  return sizes.find((size) => stockFor(productId, size) > 0) ?? null;
+}
+
+export function shippingPrice(methodId: string, subtotal: number) {
+  const method = shippingMethods.find((item) => item.id === methodId);
+  if (!method) return 0;
+  if (method.freeOver != null && subtotal >= method.freeOver) return 0;
+  return method.price;
+}
+
+export function relatedProducts(productId: string) {
+  const current = getProduct(productId);
+  if (!current) return products.slice(0, 4);
+  const same = products.filter(
+    (item) => item.category === current.category && item.id !== productId,
+  );
+  const rest = products.filter(
+    (item) => item.category !== current.category && item.id !== productId,
+  );
+  return [...same, ...rest].slice(0, 4);
 }

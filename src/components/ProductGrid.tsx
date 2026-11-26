@@ -1,20 +1,28 @@
 import Link from "next/link";
-import { products } from "@/lib/data";
+import { products, type Product } from "@/lib/data";
 import { ProductCard } from "./ProductCard";
 
 type Props = {
   title?: string;
+  eyebrow?: string;
   limit?: number;
   filterCategory?: string;
+  ids?: string[];
 };
 
 export function ProductGrid({
   title = "Trending now",
+  eyebrow = "Nyarko's picks",
   limit = 8,
   filterCategory,
+  ids,
 }: Props) {
   let list = products;
-  if (filterCategory === "sale") {
+  if (ids) {
+    list = ids
+      .map((id) => products.find((product) => product.id === id))
+      .filter((product): product is Product => product != null);
+  } else if (filterCategory === "sale") {
     list = products.filter((p) => p.compareAt);
   } else if (filterCategory) {
     list = products.filter((p) => p.category === filterCategory);
@@ -28,7 +36,7 @@ export function ProductGrid({
         <div className="mb-10 flex items-end justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-              Nyarko&apos;s picks
+              {eyebrow}
             </p>
             <h2 className="mt-2 font-display text-2xl font-bold sm:text-3xl">
               {title}

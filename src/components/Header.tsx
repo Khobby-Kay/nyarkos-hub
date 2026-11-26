@@ -5,10 +5,12 @@ import { useEffect, useState } from "react";
 import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/lib/data";
+import { useShop } from "@/lib/store";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { cartCount } = useShop();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -64,13 +66,13 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-1 sm:gap-2">
-          <button
-            type="button"
+          <Link
+            href="/search"
             className="rounded-full p-2.5 transition hover:bg-black/5"
             aria-label="Search"
           >
             <Search className="h-[18px] w-[18px]" />
-          </button>
+          </Link>
           <Link
             href="/account"
             className="hidden rounded-full p-2.5 transition hover:bg-black/5 sm:block"
@@ -81,12 +83,14 @@ export function Header() {
           <Link
             href="/cart"
             className="relative rounded-full p-2.5 transition hover:bg-black/5"
-            aria-label="Cart, 2 items"
+            aria-label={`Cart, ${cartCount} items`}
           >
             <ShoppingBag className="h-[18px] w-[18px]" />
-            <span className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-bold text-white">
-              2
-            </span>
+            {cartCount > 0 ? (
+              <span className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-bold text-white">
+                {cartCount}
+              </span>
+            ) : null}
           </Link>
         </div>
       </div>
