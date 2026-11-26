@@ -40,7 +40,7 @@ export default function RootLayout({
         <ShopProvider>
           <AnnouncementBar />
           <Header />
-          <main className="min-h-screen">{children}</main>
+          <main className="min-h-screen pb-24 lg:pb-0">{children}</main>
           <Footer />
         </ShopProvider>
       </body>

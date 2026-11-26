@@ -31,7 +31,7 @@ const cols = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-ink text-white">
+    <footer className="border-t border-border bg-ink pb-28 text-white lg:pb-0">
       <div className="mx-auto grid max-w-[1400px] gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-5 lg:px-8">
         <div className="lg:col-span-2">
           <p className="font-display text-2xl font-extrabold">

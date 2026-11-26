@@ -45,18 +45,18 @@ export function Hero() {
               Quarter zip styles
             </Link>
           </div>
-          <div className="mt-10 flex gap-8 border-t border-border pt-8 text-sm">
+          <div className="mt-10 grid grid-cols-3 gap-3 border-t border-border pt-6 text-sm sm:gap-8 sm:pt-8">
             <div>
               <p className="font-display text-2xl font-bold">6</p>
-              <p className="text-muted">Exclusive styles</p>
+              <p className="text-xs text-muted sm:text-sm">Exclusive styles</p>
             </div>
             <div>
               <p className="font-display text-2xl font-bold">100%</p>
-              <p className="text-muted">Knit polos</p>
+              <p className="text-xs text-muted sm:text-sm">Knit polos</p>
             </div>
             <div>
               <p className="font-display text-2xl font-bold">GH</p>
-              <p className="text-muted">Nationwide delivery</p>
+              <p className="text-xs text-muted sm:text-sm">Nationwide</p>
             </div>
           </div>
         </motion.div>

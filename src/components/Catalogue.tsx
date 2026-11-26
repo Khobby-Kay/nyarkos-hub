@@ -40,8 +40,8 @@ export function Catalogue({ heading, intro, category }: Props) {
       <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 lg:px-8">
         <h1 className="font-display text-3xl font-extrabold sm:text-4xl">{heading}</h1>
         {intro ? <p className="mt-2 max-w-xl text-muted">{intro}</p> : null}
-        <div className="mt-8 flex flex-col gap-4 rounded-2xl border border-border bg-surface p-4 sm:flex-row sm:items-end sm:justify-between">
-          <div className="flex flex-wrap gap-2">
+        <div className="mt-8 flex flex-col gap-4 rounded-3xl border border-white/70 bg-white/70 p-3 shadow-[0_8px_30px_rgba(0,0,0,0.04)] backdrop-blur-xl sm:p-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <FilterButton active={size === "all"} onClick={() => setSize("all")}>
               All sizes
             </FilterButton>
@@ -55,9 +55,9 @@ export function Catalogue({ heading, intro, category }: Props) {
               </FilterButton>
             ))}
           </div>
-          <div className="flex flex-wrap items-center gap-4 text-sm">
-            <label className="flex items-center gap-2">
-              Up to GH₵{maxPrice}
+          <div className="flex flex-col gap-3 text-sm sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+            <label className="flex min-w-0 items-center gap-2">
+              <span className="shrink-0">Up to GH₵{maxPrice}</span>
               <input
                 type="range"
                 min={400}
@@ -65,6 +65,7 @@ export function Catalogue({ heading, intro, category }: Props) {
                 step={10}
                 value={maxPrice}
                 onChange={(event) => setMaxPrice(Number(event.target.value))}
+                className="w-full sm:w-28"
               />
             </label>
             <label className="flex items-center gap-2">
@@ -78,7 +79,7 @@ export function Catalogue({ heading, intro, category }: Props) {
             <select
               value={sort}
               onChange={(event) => setSort(event.target.value)}
-              className="rounded-full border border-border bg-background px-3 py-2"
+              className="w-full rounded-full border border-black/10 bg-white/80 px-3 py-2 sm:w-auto"
               aria-label="Sort products"
             >
               <option value="newest">Newest</option>

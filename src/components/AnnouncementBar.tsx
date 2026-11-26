@@ -9,12 +9,10 @@ export function AnnouncementBar() {
   if (!visible) return null;
 
   return (
-    <div className="relative bg-ink text-white text-center text-xs sm:text-sm tracking-wide">
-      <div className="mx-auto flex items-center justify-center gap-2 px-10 py-2.5">
+    <div className="relative bg-ink text-center text-[11px] tracking-wide text-white sm:text-xs">
+      <div className="mx-auto flex items-center justify-center px-10 py-2">
         <span className="font-medium">
-          Knit polos only · Free delivery in Accra on orders GH₵500+ · DM to
-          order on{" "}
-          <span className="text-accent font-semibold">Instagram</span>
+          Free Accra delivery from GH₵500 · Sizes S–XL
         </span>
       </div>
       <button
