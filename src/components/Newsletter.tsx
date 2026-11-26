@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 
 export function Newsletter() {
   const [email, setEmail] = useState("");
   const [done, setDone] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (email.trim()) setDone(true);
   }

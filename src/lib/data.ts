@@ -112,7 +112,7 @@ export const products: Product[] = [
   },
 ];
 
-export const navLinks = [
+export const navLinks: { label: string; href: string; accent?: boolean }[] = [
   { label: "Shop All", href: "/shop" },
   { label: "Quarter Zip", href: "/shop/quarter-zip" },
   { label: "Striped", href: "/shop/striped" },
