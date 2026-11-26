@@ -1,6 +1,5 @@
 import { Hero } from "@/components/Hero";
 import { SocialMarquee } from "@/components/SocialMarquee";
-import { StorePromises } from "@/components/StorePromises";
 import { CategoryStrip } from "@/components/CategoryStrip";
 import { ProductGrid } from "@/components/ProductGrid";
 import { PromoBanner } from "@/components/PromoBanner";
@@ -14,7 +13,6 @@ export default function HomePage() {
     <>
       <Hero />
       <SocialMarquee />
-      <StorePromises />
       <CategoryStrip />
       <ProductGrid
         eyebrow="Just landed"
