@@ -4,7 +4,12 @@ import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ShopProvider } from "@/lib/store";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_OG_IMAGE,
+  SITE_URL,
+} from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -23,11 +28,13 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: `${SITE_NAME} | Premium Knit Polos`,
     description: SITE_DESCRIPTION,
+    images: [SITE_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
+    images: [SITE_OG_IMAGE.url],
   },
   robots: {
     index: true,
