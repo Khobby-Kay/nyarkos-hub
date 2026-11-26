@@ -1,0 +1,12 @@
+---
+description: KayTech Africa footer credit on client sites unless opted out
+alwaysApply: true
+---
+
+# KayTech Africa footer credit
+
+For every site or app we build unless the client explicitly asks otherwise:
+
+- Add a visible footer line: **Built by KayTech Africa**, linking to `https://www.kaytechafrica.com` (also show `www.kaytechafrica.com` if it fits the design).
+- Style it smaller and quieter than the client copyright; keep it on every page via the shared layout footer.
+- Do **not** add this credit when the user or PRD says to omit KayTech branding, white-label, or use different attribution.

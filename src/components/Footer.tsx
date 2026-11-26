@@ -79,16 +79,38 @@ export function Footer() {
         ))}
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-[1400px] flex-col gap-2 px-4 py-6 text-xs text-white/40 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
-          <p>© {new Date().getFullYear()} Nyarko&apos;s Hub. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link href="/policies/privacy" className="hover:text-white/70">
-              Privacy
-            </Link>
-            <Link href="/policies/returns" className="hover:text-white/70">
-              Terms
-            </Link>
+        <div className="mx-auto flex max-w-[1400px] flex-col gap-3 px-4 py-6 text-xs text-white/40 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <p>© {new Date().getFullYear()} Nyarko&apos;s Hub. All rights reserved.</p>
+            <div className="flex gap-4">
+              <Link href="/policies/privacy" className="hover:text-white/70">
+                Privacy
+              </Link>
+              <Link href="/policies/returns" className="hover:text-white/70">
+                Terms
+              </Link>
+            </div>
           </div>
+          <p>
+            Built by{" "}
+            <a
+              href="https://www.kaytechafrica.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/55 underline decoration-white/20 underline-offset-2 transition hover:text-white/80"
+            >
+              KayTech Africa
+            </a>
+            <span className="text-white/30"> · </span>
+            <a
+              href="https://www.kaytechafrica.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-white/70"
+            >
+              www.kaytechafrica.com
+            </a>
+          </p>
         </div>
       </div>
     </footer>
