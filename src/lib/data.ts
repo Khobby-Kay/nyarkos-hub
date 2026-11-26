@@ -22,19 +22,19 @@ export const categories: Category[] = [
     slug: "quarter-zip",
     title: "Quarter Zip",
     image: "/products/polo-navy-stripe-zip.jpg",
-    count: 4,
+    count: 3,
   },
   {
     slug: "striped",
     title: "Striped",
     image: "/products/polo-grey-chevron.jpg",
-    count: 4,
+    count: 1,
   },
   {
     slug: "classic",
     title: "Button Polos",
     image: "/products/polo-resort-stripe.jpg",
-    count: 2,
+    count: 1,
   },
   {
     slug: "textures",

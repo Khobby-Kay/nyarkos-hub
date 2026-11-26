@@ -1,6 +1,11 @@
 # Nyarko's Hub
 
-Modern fashion storefront inspired by fast-fashion e-commerce — built with **Next.js 15**, **Tailwind CSS v4**, and **Framer Motion**.
+Premium men's knit polo storefront — **six styles only**, built with Next.js 15 and Tailwind CSS.
+
+## Live links
+
+- **GitHub:** [github.com/Khobby-Kay/nyarkos-hub](https://github.com/Khobby-Kay/nyarkos-hub)
+- **Deploy on Vercel:** [Import this repo](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FKhobby-Kay%2Fnyarkos-hub&project-name=Nyarkos-Hub&repository-name=nyarkos-hub) — set the project display name to **Nyarko's Hub** when prompted.
 
 ## Run locally
 
@@ -11,16 +16,6 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## What's included
+## Catalog
 
-- Homepage with hero, categories, product grid, sale banner, lookbook, newsletter
-- Shop and category routes (`/shop`, `/shop/[category]`)
-- Cart preview page
-- Responsive header with mobile drawer
-- Mock product catalog in `src/lib/data.ts`
-
-## Next steps
-
-- Connect a CMS or Shopify / Medusa backend
-- Add product detail pages and checkout
-- Replace Unsplash placeholders with your brand photography
+Product photos live in `public/products/`. Edit names and prices in `src/lib/data.ts`.
